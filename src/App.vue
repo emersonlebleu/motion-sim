@@ -1,18 +1,34 @@
 <template>
-  <StartStopBtn text="Start"/>
+  <StartStopBtn/>
+  <RestartBtn/>
   <AddSphereBtn/>
 </template>
 
 <script>
 import StartStopBtn from './components/StartStopBtn.vue';
 import AddSphereBtn from './components/AddSphereBtn.vue';
+import RestartBtn from './components/RestartBtn.vue';
 
 export default {
   name: 'App',
   components: {
     StartStopBtn, 
-    AddSphereBtn
-}
+    AddSphereBtn, 
+    RestartBtn,
+}, 
+  data() {
+    return {
+      spheres: 0, 
+      points: 0,
+      running: false,
+      instant: 0,
+      maxSpheres: 5,
+      spheresMaxed: false,
+      maxPoints: 3,
+      pointsMaxed: false,
+      maxTime: 60000,
+    }
+  }
 }
 </script>
 
