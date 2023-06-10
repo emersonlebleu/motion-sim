@@ -1,12 +1,12 @@
 import { shallowMount } from '@vue/test-utils'
-import HelloWorld from '@/components/HelloWorld.vue'
+import StartStopBtn from '@/components/StartStopBtn.vue'
 
-describe('HelloWorld.vue', () => {
-  it('renders props.msg when passed', () => {
-    const msg = 'new message'
-    const wrapper = shallowMount(HelloWorld, {
-      props: { msg }
+describe('StartStopBtn.vue', () => {
+  it('renders props.text when passed', () => {
+    const text = 'StartBtn'
+    const wrapper = shallowMount(StartStopBtn, {
+      props: { text }
     })
-    expect(wrapper.text()).toMatch(msg)
+    expect(wrapper.text()).toMatch(text)
   })
 })

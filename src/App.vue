@@ -1,16 +1,18 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+  <StartStopBtn text="Start"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
+
+import StartStopBtn from './components/StartStopBtn.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    StartStopBtn
+}
 }
 </script>
 
