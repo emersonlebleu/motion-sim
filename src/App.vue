@@ -1,8 +1,10 @@
 <template>
   <InfoSection :spheres="spheres" :points="points" :instant="instant" :maxSpheres="maxSpheres" :maxPoints="maxPoints" :maxTime="maxTime"/>
   <StartStopBtn/>
-  <RestartBtn/>
-  <AddSphereBtn/>
+  <RestartBtn 
+    @Click="spheres = 0"/>
+  <AddSphereBtn 
+    @Click="spheres++"/>
 </template>
 
 <script>
