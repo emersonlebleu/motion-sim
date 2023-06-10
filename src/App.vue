@@ -1,4 +1,5 @@
 <template>
+  <InfoSection :spheres="spheres" :points="points" :instant="instant" :maxSpheres="maxSpheres" :maxPoints="maxPoints" :maxTime="maxTime"/>
   <StartStopBtn/>
   <RestartBtn/>
   <AddSphereBtn/>
@@ -8,6 +9,7 @@
 import StartStopBtn from './components/StartStopBtn.vue';
 import AddSphereBtn from './components/AddSphereBtn.vue';
 import RestartBtn from './components/RestartBtn.vue';
+import InfoSection from './components/InfoSection.vue';
 
 export default {
   name: 'App',
@@ -15,6 +17,7 @@ export default {
     StartStopBtn, 
     AddSphereBtn, 
     RestartBtn,
+    InfoSection,
 }, 
   data() {
     return {
@@ -34,11 +37,9 @@ export default {
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
   margin-top: 60px;
 }
 </style>
