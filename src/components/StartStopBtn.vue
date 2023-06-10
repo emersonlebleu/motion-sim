@@ -6,9 +6,14 @@
 export default {
   name: 'StartStopBtn',
   props: {
-    text: String
+  }, 
+  data() {
+    return {
+      text: 'Start'
+    }
   }
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
