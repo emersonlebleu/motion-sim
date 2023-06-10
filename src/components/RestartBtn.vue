@@ -30,4 +30,8 @@ button {
   border-radius: 3px;
   margin: .5rem;
 }
+// make button get 10% lighter on hover
+button:hover {
+  background-color: lighten(#23bd3a, 10%);
+}
 </style>
