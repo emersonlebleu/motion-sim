@@ -22,5 +22,6 @@ button {
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  border-radius: 3px;
 }
 </style>
