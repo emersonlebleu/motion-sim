@@ -1,17 +1,17 @@
 <template>
-  <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   <StartStopBtn text="Start"/>
+  <AddSphereBtn/>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-
 import StartStopBtn from './components/StartStopBtn.vue';
+import AddSphereBtn from './components/AddSphereBtn.vue';
 
 export default {
   name: 'App',
   components: {
-    StartStopBtn
+    StartStopBtn, 
+    AddSphereBtn
 }
 }
 </script>

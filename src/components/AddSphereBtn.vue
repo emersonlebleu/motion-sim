@@ -1,12 +1,16 @@
 <template>
-    <button class="start-stop-btn">{{ text }}</button>
+    <button class="add-sphere-btn">{{ text }}</button>
 </template>
 
 <script>
 export default {
-  name: 'StartStopBtn',
+  name: 'AddSphereBtn',
   props: {
-    text: String
+  }, 
+  data() {
+    return {
+      text: 'Add Sphere'
+    }
   }
 }
 </script>
@@ -14,7 +18,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 button {
-  background-color: #eb2a2a; /* Red */
+  background-color: #2a34eb; /* Blue */
   border: none;
   color: white;
   font-weight: bold;
