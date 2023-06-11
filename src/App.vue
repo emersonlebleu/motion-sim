@@ -4,7 +4,7 @@
   <RestartBtn 
     @Click="spheres = 0"/>
   <AddSphereBtn 
-    @Click="spheres++"/>
+    @Click="addSphere"/>
 </template>
 
 <script>
@@ -33,6 +33,15 @@ export default {
       pointsMaxed: false,
       maxTime: 60000,
     }
+  }, 
+  methods: {
+    addSphere() {
+      if (this.spheres < this.maxSpheres) {
+        this.spheres++;
+      } else {
+        this.spheresMaxed = true;
+      }
+    },
   }
 }
 </script>
