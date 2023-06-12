@@ -5,7 +5,7 @@
     @Click="num_spheres = 0"/>
   <AddSphereBtn 
     @Click="addSphere"/>
-  <PlaneContainer :size="planeSize">
+  <PlaneContainer :size="planeSize" :spheres="spheres" :points="points">
   
   </PlaneContainer>
 </template>

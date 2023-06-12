@@ -1,5 +1,7 @@
 <template>
-    <div class="plane-container" :class="size"></div>
+    <div class="plane-container" :class="size">
+    
+    </div>
 </template>
 
 <script>
@@ -9,7 +11,13 @@ export default {
     size: {
         type: String,
         default: "small",
-    }
+    }, 
+    spheres: {
+        type: Array,
+    },
+    points: {
+        type: Array,
+    },
   }, 
   data() {
     return {
