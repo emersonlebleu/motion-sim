@@ -1,11 +1,13 @@
 <template>
-  <InfoSection :spheres="spheres" :points="points" :instant="instant" :maxSpheres="maxSpheres" :maxPoints="maxPoints" :maxTime="maxTime"/>
+  <InfoSection :spheres="num_spheres" :points="num_points" :instant="instant" :maxSpheres="maxSpheres" :maxPoints="maxPoints" :maxTime="maxTime"/>
   <StartStopBtn/>
   <RestartBtn 
-    @Click="spheres = 0"/>
+    @Click="num_spheres = 0"/>
   <AddSphereBtn 
     @Click="addSphere"/>
-  <PlaneContainer :size="planeSize"/> 
+  <PlaneContainer :size="planeSize">
+  
+  </PlaneContainer>
 </template>
 
 <script>
@@ -26,8 +28,10 @@ export default {
 }, 
   data() {
     return {
-      spheres: 0, 
-      points: 0,
+      num_spheres: 0,
+      spheres: [], 
+      num_points: 0,
+      points: [],
       running: false,
       instant: 0,
       maxSpheres: 5,
@@ -40,8 +44,8 @@ export default {
   }, 
   methods: {
     addSphere() {
-      if (this.spheres < this.maxSpheres) {
-        this.spheres++;
+      if (this.num_spheres < this.maxSpheres) {
+        this.num_spheres++;
       } else {
         this.spheresMaxed = true;
       }
