@@ -5,6 +5,7 @@
     @Click="spheres = 0"/>
   <AddSphereBtn 
     @Click="addSphere"/>
+  <PlaneContainer :size="planeSize"/> 
 </template>
 
 <script>
@@ -12,6 +13,7 @@ import StartStopBtn from './components/StartStopBtn.vue';
 import AddSphereBtn from './components/AddSphereBtn.vue';
 import RestartBtn from './components/RestartBtn.vue';
 import InfoSection from './components/InfoSection.vue';
+import PlaneContainer from './components/PlaneContainer.vue';
 
 export default {
   name: 'App',
@@ -20,6 +22,7 @@ export default {
     AddSphereBtn, 
     RestartBtn,
     InfoSection,
+    PlaneContainer,
 }, 
   data() {
     return {
@@ -31,7 +34,8 @@ export default {
       spheresMaxed: false,
       maxPoints: 3,
       pointsMaxed: false,
-      maxTime: 60000,
+      maxTime: 60, //seconds
+      planeSize: "large",
     }
   }, 
   methods: {
