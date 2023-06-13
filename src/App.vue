@@ -48,12 +48,7 @@ export default {
       if (this.num_spheres < this.maxSpheres) {
         this.num_spheres++;
         //Create a new sphere object and push it to the spheres array
-        this.spheres.push({
-          x: Math.floor(Math.random() * (675-20)),
-          y: Math.floor(Math.random() * (450-20)),
-          r: Math.floor(Math.random() * (20 - 5 + 1) + 5),
-          color: `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`
-        });
+        this.spheres.push(this.newSphere());
       } else {
         this.spheresMaxed = true;
       }
@@ -85,7 +80,29 @@ export default {
       this.spheresMaxed = false,
       this.pointsMaxed = false,
       this.instants = []
-    }
+    },
+    newSphere() {
+      //Using the width and height of the plane below width = 675, height = 450
+      //Generate random x and y coordinates for the sphere that are around the edge of the plane
+      let xOrY = Math.floor(Math.random() * 2);
+      let x = 0;
+      let y = 0;
+      let r = Math.floor(Math.random() * (20 - 5 + 1) + 5);
+
+      if (xOrY == 1) {
+        x = Math.floor(Math.random() * (675-r));
+        y = (450 - r);
+      } else {
+        x = (675 - r);
+        y = Math.floor(Math.random() * (450-r));
+      }
+      return {
+          x: x,
+          y: y,
+          r: r,
+          color: `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`
+        }
+    },
   }
 }
 </script>
