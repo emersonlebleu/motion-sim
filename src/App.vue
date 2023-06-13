@@ -84,23 +84,38 @@ export default {
     newSphere() {
       //Using the width and height of the plane below width = 675, height = 450
       //Generate random x and y coordinates for the sphere that are around the edge of the plane
-      let xOrY = Math.floor(Math.random() * 2);
+      let xOrY = Math.floor(Math.random() * 4);
       let x = 0;
       let y = 0;
-      let r = Math.floor(Math.random() * (20 - 5 + 1) + 5);
+      let r = Math.floor(Math.random() * (25 - 8 + 1) + 8);
+      let mass = 0; 
+      let speed = 0;
+      let direction = {x: 0, y: 0}
+      let sphereSize = (3.14*(r * r));
 
       if (xOrY == 1) {
         x = Math.floor(Math.random() * (675-r));
         y = (450 - r);
-      } else {
+      } else if (xOrY == 2) {
         x = (675 - r);
         y = Math.floor(Math.random() * (450-r));
+      } else if (xOrY == 3) {
+        x = Math.floor(Math.random() * (675-r));
+        y = 0 + r;
+      } else {
+        x = 0 + r;
+        y = Math.floor(Math.random() * (450-r));
       }
+
       return {
           x: x,
           y: y,
           r: r,
-          color: `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`
+          color: `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`, 
+          mass: mass,
+          speed: speed,
+          direction: direction,
+          sphereSize: sphereSize,
         }
     },
   }
