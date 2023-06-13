@@ -1,8 +1,8 @@
 <template>
-  <InfoSection :spheres="num_spheres" :points="num_points" :instant="instant" :maxSpheres="maxSpheres" :maxPoints="maxPoints" :maxTime="maxTime"/>
-  <StartStopBtn/>
+  <InfoSection :spheres="num_spheres" :points="num_points" :instant="(instant/1000).toFixed(2)" :maxSpheres="maxSpheres" :maxPoints="maxPoints" :maxTime="maxTime/1000"/>
+  <StartStopBtn @toggle-running="toggleRunning" :running="running"/>
   <RestartBtn 
-    @Click="num_spheres = 0"/>
+    @Click="num_spheres = 0; instant = 0"/>
   <AddSphereBtn 
     @Click="addSphere"/>
   <PlaneContainer :size="planeSize" :spheres="spheres" :points="points">
@@ -38,7 +38,7 @@ export default {
       spheresMaxed: false,
       maxPoints: 3,
       pointsMaxed: false,
-      maxTime: 60, //seconds
+      maxTime: 60000,
       planeSize: "large",
     }
   }, 
@@ -50,6 +50,32 @@ export default {
         this.spheresMaxed = true;
       }
     },
+    toggleRunning() {
+      this.running = !this.running;
+      this.toggleTimer();
+    },
+    toggleTimer() {
+      this.interval = setInterval(() => {
+        if (this.instant < this.maxTime && this.running) {
+          this.instant++;
+        } else {
+          this.stopTimer();
+          this.running = false;
+        }        
+      }, 1);
+    },
+    stopTimer() {
+      clearInterval(this.interval);  
+    }, 
+    reset() {
+      this.num_spheres = 0;
+      this.num_points = 0;
+      this.instant = 0;
+      this.spheresMaxed = false;
+      this.pointsMaxed = false;
+      this.spheres = [];
+      this.points = [];
+    }
   }
 }
 </script>

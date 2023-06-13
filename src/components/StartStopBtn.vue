@@ -1,15 +1,22 @@
 <template>
-    <button class="start-stop-btn">{{ text }}</button>
+    <button class="start-stop-btn" @click="$emit('toggle-running')">{{ text }}</button>
 </template>
 
 <script>
+
+
 export default {
   name: 'StartStopBtn',
+  emits: ['toggle-running'],
   props: {
+    running: {
+        type: Boolean,
+        default: false,
+    },
   }, 
-  data() {
-    return {
-      text: 'Start'
+  computed: {
+    text() {
+      return !this.running ? "Start" : "Stop";
     }
   }
 }
