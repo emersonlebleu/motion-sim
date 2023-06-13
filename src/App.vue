@@ -2,7 +2,7 @@
   <InfoSection :spheres="num_spheres" :points="num_points" :instant="(instant/25).toFixed(2)" :maxSpheres="maxSpheres" :maxPoints="maxPoints" :maxTime="maxTime/25"/>
   <StartStopBtn @toggle-running="toggleRunning" :running="running"/>
   <RestartBtn 
-    @Click="num_spheres = 0; instant = 0"/>
+    @Click="reset"/>
   <AddSphereBtn 
     @Click="addSphere"/>
   <PlaneContainer :size="planeSize" :spheres="spheres" :points="points">
