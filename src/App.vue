@@ -101,10 +101,16 @@ export default {
         y = Math.floor(Math.random() * (450-r));
       } else if (xOrY == 3) {
         x = Math.floor(Math.random() * (675-r));
+        if (x < r) {
+          x = r;
+        }
         y = 0 + r;
       } else {
         x = 0 + r;
         y = Math.floor(Math.random() * (450-r));
+        if (y < r) {
+          y = r;
+        }
       }
 
       return {
