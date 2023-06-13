@@ -40,7 +40,6 @@ export default {
         //Use d3 for the chart component
         const svg = d3.select('.plane-chart');
 
-        // Perform data join and handle enter, update, and exit selections
         const circles = svg.selectAll('circle')
         .data(this.spheres);
 

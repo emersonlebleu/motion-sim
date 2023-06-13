@@ -35,7 +35,7 @@ export default {
       margin-bottom: 20px;
       border: 1px solid black;
       border-radius: 4px;
-      background-color: rgb(159, 187, 159);
+      background-color: rgb(234, 251, 234);
   }
   .small {
       width: 300px;

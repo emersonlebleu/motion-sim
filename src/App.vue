@@ -51,7 +51,7 @@ export default {
         this.spheres.push({
           x: Math.floor(Math.random() * (675-20)),
           y: Math.floor(Math.random() * (450-20)),
-          r: Math.floor(Math.random() * 20),
+          r: Math.floor(Math.random() * (20 - 5 + 1) + 5),
           color: `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`
         });
       } else {
