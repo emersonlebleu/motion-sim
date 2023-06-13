@@ -1,29 +1,8 @@
 # motion-sim
+This project's goal is to ultimately simulate motion of the "sphere" objects on the plane. This was created as interview preparation in hopes of 
+getting familiar with the Vue framework and some of the features of D3.js. Currently, the project is ongoing I started with a components
+and features plan and am implementing what I can with the timeframe I have.
 
-## Project setup
-```
-npm install
-```
+Below is an image of the planned components and major functions.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![Project Component Plan](Plan.png)
