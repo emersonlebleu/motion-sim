@@ -1,5 +1,5 @@
 <template>
-  <InfoSection :spheres="num_spheres" :points="num_points" :instant="(instant/1000).toFixed(2)" :maxSpheres="maxSpheres" :maxPoints="maxPoints" :maxTime="maxTime/1000"/>
+  <InfoSection :spheres="num_spheres" :points="num_points" :instant="(instant/25).toFixed(2)" :maxSpheres="maxSpheres" :maxPoints="maxPoints" :maxTime="maxTime/25"/>
   <StartStopBtn @toggle-running="toggleRunning" :running="running"/>
   <RestartBtn 
     @Click="num_spheres = 0; instant = 0"/>
@@ -38,8 +38,9 @@ export default {
       spheresMaxed: false,
       maxPoints: 3,
       pointsMaxed: false,
-      maxTime: 60000,
+      maxTime: 1500,
       planeSize: "large",
+      instants: []
     }
   }, 
   methods: {
@@ -62,7 +63,7 @@ export default {
           this.stopTimer();
           this.running = false;
         }        
-      }, 1);
+      }, 40);
     },
     stopTimer() {
       clearInterval(this.interval);  
