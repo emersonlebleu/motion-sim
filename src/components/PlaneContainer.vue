@@ -1,12 +1,17 @@
 <template>
     <div class="plane-container" :class="size">
-    
+      <PlaneChart :size="size" :spheres="spheres" :points="points"></PlaneChart>
     </div>
 </template>
 
 <script>
+import PlaneChart from './PlaneChart.vue';
+
 export default {
   name: 'PlaneContainer',
+  components: {
+    PlaneChart,
+  },
   props: {
     size: {
         type: String,
@@ -14,17 +19,13 @@ export default {
     }, 
     spheres: {
         type: Array,
+        default: () => [],
     },
     points: {
         type: Array,
-    },
-  }, 
-  data() {
-    return {
     }
   }
 }
-
 </script>
 
 <style scoped lang="scss">
@@ -47,7 +48,7 @@ export default {
   }
 
   .large{
-      width: 600px;
-      height: 400px;
+      width: 675px;
+      height: 450px;
   }
 </style>

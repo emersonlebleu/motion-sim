@@ -47,6 +47,13 @@ export default {
     addSphere() {
       if (this.num_spheres < this.maxSpheres) {
         this.num_spheres++;
+        //Create a new sphere object and push it to the spheres array
+        this.spheres.push({
+          x: Math.floor(Math.random() * (675-20)),
+          y: Math.floor(Math.random() * (450-20)),
+          r: Math.floor(Math.random() * 20),
+          color: `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`
+        });
       } else {
         this.spheresMaxed = true;
       }
@@ -69,13 +76,15 @@ export default {
       clearInterval(this.interval);  
     }, 
     reset() {
-      this.num_spheres = 0;
-      this.num_points = 0;
-      this.instant = 0;
-      this.spheresMaxed = false;
-      this.pointsMaxed = false;
-      this.spheres = [];
-      this.points = [];
+      this.num_spheres = 0,
+      this.spheres = [], 
+      this.num_points = 0,
+      this.points = [],
+      this.running = false,
+      this.instant = 0,
+      this.spheresMaxed = false,
+      this.pointsMaxed = false,
+      this.instants = []
     }
   }
 }
