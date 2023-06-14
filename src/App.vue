@@ -58,6 +58,7 @@ export default {
       this.toggleTimer();
     },
     toggleTimer() {
+      this.stopTimer();
       this.interval = setInterval(() => {
         if (this.instant < this.maxTime && this.running) {
           this.instant++;
