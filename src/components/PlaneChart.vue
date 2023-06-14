@@ -27,7 +27,7 @@ export default {
   },
   watch: {
     reactiveSpheres(newSpheres, oldSpheres) {
-      if (newSpheres.length !== oldSpheres.length) {
+      if (newSpheres !== oldSpheres) {
         this.drawChart();
       }
     },

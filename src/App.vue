@@ -61,6 +61,15 @@ export default {
       this.interval = setInterval(() => {
         if (this.instant < this.maxTime && this.running) {
           this.instant++;
+
+          //loop through the spheres array and update the location of each sphere
+          let newSpheres = [];
+          for (let sphere of this.spheres){
+            sphere = this.updateLocation(sphere);
+            newSpheres.push(sphere);
+          }
+          this.spheres = newSpheres;
+
         } else {
           this.stopTimer();
           this.running = false;
@@ -87,10 +96,10 @@ export default {
       let xOrY = Math.floor(Math.random() * 4);
       let x = 0;
       let y = 0;
-      let r = Math.floor(Math.random() * (25 - 8 + 1) + 8);
-      let mass = 0; 
-      let speed = 0;
-      let direction = {x: 0, y: 0}
+      let r = Math.floor(Math.random() * (25.0001 - 8) + 8); //Radius between 8 and 25
+      let mass = Math.floor(Math.random() * (25.0001 - 1) + 1); //Mass between 1 and 25
+      let speed = Number((Math.random() * (2.0001 - .8) + .8).toFixed(1)); //Speed between .8 and 2
+      let direction = {vx: Number((Math.random() * 3.4001 - 1.2).toFixed(1)), vy: Number((Math.random() * 3.4001 - 1.2).toFixed(1))}; //Direction between -1.5 and 1.5
       let sphereSize = (3.14*(r * r));
 
       if (xOrY == 1) {
@@ -112,7 +121,6 @@ export default {
           y = r;
         }
       }
-
       return {
           x: x,
           y: y,
@@ -124,6 +132,48 @@ export default {
           sphereSize: sphereSize,
         }
     },
+    updateLocation(sphere) {
+      //Update the location of the sphere based on its speed and direction
+      let x = sphere.x;
+      let y = sphere.y;
+      let speed = sphere.speed;
+      let direction = sphere.direction;
+      let r = sphere.r;
+      let mass = sphere.mass;
+      let sphereSize = sphere.sphereSize;
+      let color = sphere.color;
+
+      let xMin = r;
+      let yMin = r;
+      let xMax = 675 - r;
+      let yMax = 450 - r;
+
+      //if x or y is at the min or max, change the direction as appropriate
+      if (x <= xMin && direction.vx < 0) {
+        direction.vx = direction.vx * -1;
+      } else if (x >= xMax && direction.vx > 0) {
+        direction.vx = direction.vx * -1;
+      } else if (y <= yMin && direction.vy < 0) {
+        direction.vy = direction.vy * -1;
+      } else if (y >= yMax && direction.vy > 0) {
+        direction.vy = direction.vy * -1;
+      }
+
+      //Update the x and y coordinates based on the direction and speed
+      x = x + (direction.vx * speed);
+      y = y + (direction.vy * speed);
+
+      return {
+        x: x,
+        y: y,
+        r: r,
+        color: color, 
+        mass: mass,
+        speed: speed,
+        direction: direction,
+        sphereSize: sphereSize,
+      }
+    }
   }
 }
 </script>
