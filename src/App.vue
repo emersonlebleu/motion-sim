@@ -74,7 +74,7 @@ export default {
           this.stopTimer();
           this.running = false;
         }        
-      }, 40);
+      }, 25);
     },
     stopTimer() {
       clearInterval(this.interval);  
@@ -98,7 +98,7 @@ export default {
       let y = 0;
       let r = Math.floor(Math.random() * (25.0001 - 8) + 8); //Radius between 8 and 25
       let mass = Math.floor(Math.random() * (25.0001 - 1) + 1); //Mass between 1 and 25
-      let speed = Number((Math.random() * (2.0001 - .8) + .8).toFixed(1)); //Speed between .8 and 2
+      let speed = Number((Math.random() * (2.2001 - 1) + 1).toFixed(1)); //Speed between .8 and 2
       let direction = {vx: Number((Math.random() * 3.4001 - 1.2).toFixed(1)), vy: Number((Math.random() * 3.4001 - 1.2).toFixed(1))}; //Direction between -1.5 and 1.5
       let sphereSize = (3.14*(r * r));
 
